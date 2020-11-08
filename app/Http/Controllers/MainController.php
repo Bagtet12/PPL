@@ -25,9 +25,15 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user=new \app\User;
+        $user->role_id=2;
+        $user->email=$request->email;
+        $user->password=bcrypt($request->password);
+        $user->save();
+
+
     }
 
     /**
